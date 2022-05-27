@@ -13,7 +13,8 @@ Cropped:![Cropped Image](https://i.ibb.co/zfgbhXd/image2.png)
 
 ### Supports:
 - Biomes
-- Weather arrow on water (you can to allow it on land by editing the code a touch if you want)
+- Weather arrow on water
+- Details
 
 ### Other stuff:
 - All images can be changed
@@ -41,7 +42,7 @@ The index (item number minus one) that the items are in `picsUnloaded` and `deta
 			- The value of the image divided in to 4 64-sized chunks is the strength
 			- That can be changed b changing the nuumber line `80` of `map reader.png`
 	- `details.png`
-		- The this is poorly designed and will probably not work for your use case so you might want to rewrite it (`map reader.py` lines `23` to `39`)
+		- The this is poorly designed and will probably not be optimal for your use case so you might want to rewrite it (`map reader.py` lines `23` to `39`)
 		- If its white
 			- detail is 0 (nothing)
 		- If red is between 250-255 (and not white)
@@ -52,3 +53,40 @@ The index (item number minus one) that the items are in `picsUnloaded` and `deta
 			- Will make a detail 2
 		- If red is between 0-127
 			- Will make detail 1
+	- These images images must be the size of the board in hexes (or larger, will just get part of them ignored)
+2. Set the values of `SIZEX` and `SIZEY` in `map reader.py` to the dimensions of the board
+3. Run the program `map reader.py`
+4. Copy everything blasted into the terminal
+5. Paste it in the program `gridTest.py` replacing lines `13`-`247`
+6. Remove the comma `,` at the end
+7. Add a closing square braket `]` at the end
+Should look simular to how it looked before you pasted it hopefully
+
+### Changing varrious things:
+Do What is listed in the program `gridTest.py`
+#### Image resolution
+Alter `HEXSIZE`
+This is the number of pixels in the height of a hex
+Note: you might want to scale up or down background images to match
+#### Land tile boarders
+Alter `BRIGHTNESSSIZE`
+This changes the width (relative to hexsize) of the lightened or darkened edges
+Alter `BRIGHTNESSPOWER`
+This changes how stong the effect of the lightening and darkening has on the color
+#### Weather arrows
+Alter `TRIWIDTH`
+This changes the width (relative to hexsize) of the arrows
+Alter `WINDPOWER`
+This changes how strong the effect of the darkening that the darkening has on the arrows
+#### Ocean tile boarders
+Alter `WATERBORDSIZE`
+This changes the width (relative to hexsize) of the darkened edges
+Alter `WATERBORDPOWER`
+This changes how stong the effect of the darkening has on the color
+#### Color of background with out tiles
+Alter line `318`
+
+### Creating an Image
+1. Run `gridTest.py`
+2. Wait for it to finish (single theaded so will take a while) (shows progress in the terminal)
+3. The image should open in you defualt image viewer 
