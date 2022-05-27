@@ -1,4 +1,4 @@
-# board-game-generator
+# Board Game Generator
 A small program that genortates hexgrids
 I made it to genorate a board game board for a board game design competition
 
